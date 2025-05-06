@@ -14,3 +14,12 @@ exports.createAdmin = async ({ username, email, passwordHash }) => {
         [username, email, passwordHash, "admin"]
     );
 };
+
+
+exports.meInfo = async (id) => {
+    const [rows] = await db.query(
+        "SELECT id, username , email, role FROM admins WHERE id = ?",
+        [id]
+    );
+    return rows[0];
+};

@@ -1,7 +1,7 @@
 const db = require('../config/db');
 const generateToken = require('../utils/generateToken');
 const bcrypt = require("bcrypt");
-const { findAdminByEmail, createAdmin } = require('../models/admin');
+const { findAdminByEmail, createAdmin, meInfo } = require('../models/admin');
 
 exports.register = async (req, res) => {
     try {
@@ -61,7 +61,7 @@ exports.login = async (req, res) => {
             });
         }
 
-        const token = generateToken(admin.id,admin.role);
+        const token = generateToken(admin.id, admin.role);
         res.json({
             token,
             user: {
@@ -81,3 +81,37 @@ exports.login = async (req, res) => {
         });
     }
 }
+
+
+exports.logout = async (req, res) => {
+    try {
+        res.json({
+            success: true,
+            message: "Logout successfully"
+        });
+    } catch (err) {
+        console.log(err, {
+            status: 500
+        }).json({
+            success: false,
+            message: err
+        });
+    }
+}
+
+exports.me = async (req, res) => {
+    try {
+        const { id } = req.user; // จาก token
+
+        const user = await meInfo(id); // ใช้ฟังก์ชันที่เขียนไว้
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.json({ user });
+    } catch (err) {
+        console.error("me error:", err);
+        res.status(500).json({ message: "Internal server error" });
+    }
+};

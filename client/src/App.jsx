@@ -3,6 +3,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomeLayout from './components/HomeLayout'
 import HomePage from './pages/HomePage'
 import Nopage from './pages/Nopage'
+import Login from './pages/Login'
+import Dashboard from './pages/Dashboard'
+import ProtectedRoute from './components/ProtectedRoute'
 
 
 const router = createBrowserRouter([
@@ -18,6 +21,17 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <Nopage />
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/dashboard",
+        element:
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
       }
     ]
   }

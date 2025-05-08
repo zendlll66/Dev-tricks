@@ -1,9 +1,14 @@
 import React from 'react'
 import HeadingCus from './HeadingCus'
+import { useNavigate } from 'react-router-dom'
 const CardBlog = ({ data }) => {
-    console.log("DATA RECEIVED:", data)
+    const navigate = useNavigate()
+    const handleSelect = (id) => {
+        console.log("id : " + id)
+        navigate(`/blogs/${id}`)
+    }
     return (
-        <div className='flex flex-col space-y-4 max-w-60 hover:scale-105 transition-all duration-500'>
+        <div className='flex flex-col space-y-4 max-w-60 hover:scale-105 transition-all duration-500' onClick={() => handleSelect(data.id)} >
             <div className='h-30 overflow-clip rounded-2xl object-cover border-1 bg-black/20 w-full'>
                 <img src="/assets/images/undraw_mobile.svg" alt="" />
             </div>

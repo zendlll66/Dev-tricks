@@ -6,6 +6,7 @@ import Nopage from './pages/Nopage'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import ProtectedRoute from './components/ProtectedRoute'
+import BlogDetail from './pages/BlogDetail'
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
           <ProtectedRoute>
             <Dashboard />
           </ProtectedRoute>
+      },
+      {
+        path: "/blogs/:id",
+        element: <BlogDetail/>
       }
     ]
   }

@@ -15,7 +15,7 @@ const CardBlog = ({ data }) => {
             <div>
                 <HeadingCus lebal="Javascript" />
                 <h1 className='text-lg font-bold'>{data?.title || 'ไม่มีชื่อบทความ'}</h1>
-                <p className='font-light text-gray-600'>{data?.description || 'ไม่มีรายละเอียดบทความ'}</p>
+                <p className='font-light text-gray-600 line-clamp-2'>{data?.description || 'ไม่มีรายละเอียดบทความ'}</p>
             </div>
         </div>
     )

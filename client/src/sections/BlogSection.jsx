@@ -23,11 +23,11 @@ const BlogSection = () => {
     }, [])
 
     return (
-        <div className='flex flex-col items-center md:items-start px-10 md:px-20 py-10 '>
+        <div className='flex flex-col items-center md:items-start  py-10 '>
             <h1 className='text-3xl mb-10'>Blog & News</h1>
             <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10  ' >
                 {dataBlog.map((item, index) =>
-                    <CardBlog key={index} data={item}  />
+                    <CardBlog key={index} data={item} />
                 )}
             </div>
         </div>

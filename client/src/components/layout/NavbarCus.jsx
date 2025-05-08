@@ -19,7 +19,7 @@ const NavbarCus = () => {
                         <a href="">About</a>
                     </li>
                     <li>
-                        <a href="">My Portfolio</a>
+                        <a href="https://zend-portfolio.vercel.app/">My Portfolio</a>
                     </li>
                     <li>
                         <a href="">Contact</a>

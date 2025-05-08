@@ -34,11 +34,11 @@ const Login = () => {
         }
     }
     return (
-        <div className='flex justify-center bg-white rounded-2xl overflow-hidden border-l-4 border-t-[1px] border-b-[1px] items-center m-20 max-w-4xl'>
+        <div className='flex justify-center bg-white rounded-2xl overflow-hidden border-b-4 border-1  md:border-l-4 md:border-t-[1px] md:border-b-[1px] items-center md:m-20  max-w-4xl'>
             <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
             {/* left-content */}
-            <div className='w-1/2  flex flex-col text-start items-start justify-start  px-10 space-y-5'>
+            <div className='w-1/2 py-20 flex flex-col text-start items-start justify-start  md:px-10 space-y-5'>
                 <div>
                     <h1 className='text-3xl font-bold'>
                         Welcome Back!
@@ -67,7 +67,7 @@ const Login = () => {
             </div>
 
             {/* right-content */}
-            <div className='w-1/2 flex justify-center shadow-2xl'>
+            <div className='hidden md:flex w-1/2  justify-center shadow-2xl'>
                 <img src="/assets/images/bg-login.png" alt="" />
             </div>
 

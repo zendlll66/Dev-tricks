@@ -11,8 +11,8 @@ const HeroHeader = () => {
 
             {/* Left content */}
             <div className='md:w-1/2 w-full flex justify-center  items-center md:items-start text-center md:text-start space-y-5  flex-col'>
-                <div className='text-5xl font-extrabold  '>
-                    <span className='text-[100px] '>.DEV_</span>
+                <div className='text-5xl font-medium  '>
+                    <span className='text-[100px] font-bold '>.DEV_</span>
                     <br />
                     <span>Developer Tricks & Hidden Gems</span>
                 </div>

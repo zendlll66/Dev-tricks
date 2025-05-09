@@ -13,19 +13,54 @@ const NavbarCus = () => {
             </a>
 
             {/* nav Desktop*/}
-            <div className='hidden md:flex'>
-                <ul className='flex flex-row gap-5'>
-                    <li>
-                        <a href="/about">About</a>
-                    </li>
-                    <li>
-                        <a href="https://zend-portfolio.vercel.app/">My Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="/contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
+            <ul className='hidden md:flex  flex-row gap-5'>
+                {/* ABOUT + Dropdown */}
+                <li className="relative group">
+                    <a
+                        href="#"
+                        className="relative after:bg-[#B9FF66] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 group-hover:after:scale-x-100"
+                    >
+                        ABOUT
+                    </a>
+
+                    {/* Dropdown */}
+                    <ul className="absolute top-full left-0 mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-50">
+                        <li>
+                            <a
+                                href="/about"
+                                className="block px-4 py-2 hover:bg-[#B9FF66] transition"
+                            >
+                                ME
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/about/project"
+                                className="block px-4 py-2 hover:bg-[#B9FF66] transition"
+                            >
+                                PROJECT
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/about/activity"
+                                className="block px-4 py-2 hover:bg-[#B9FF66] transition"
+                            >
+                                ACTIVITY
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="https://zend-portfolio.vercel.app/" className="relative after:bg-[#B9FF66] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">MY PORTFOLIO</a>
+                </li>
+                <li>
+                    <a href="/contact" className="relative after:content-[''] after:bg-[#B9FF66] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">CONTACT</a>
+                </li>
+                <li>
+                    <a href="/Resume" className="relative after:bg-[#B9FF66] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px]  after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">RESUME</a>
+                </li>
+            </ul>
 
             {/* Mobile Toggle Button */}
             <div className='md:hidden'>

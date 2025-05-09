@@ -12,6 +12,8 @@ import EditDelete from './pages/dashboard/EditDelete'
 import EditById from './pages/dashboard/EditById'
 import Contact from './pages/Contact'
 import AboutPage from './pages/AboutPage'
+import ProjectPage from './pages/ProjectPage'
+import Activity from './pages/Activity'
 
 
 const router = createBrowserRouter([
@@ -64,6 +66,14 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <AboutPage />
+      },
+      {
+        path: "/about/project",
+        element: <ProjectPage />
+      },
+      {
+        path: '/about/activity',
+        element: <Activity />
       }
     ]
   }

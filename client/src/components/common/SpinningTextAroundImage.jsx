@@ -1,18 +1,34 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 const SpinningTextAroundImage = () => {
-    return (
-        <div className="relative flex flex-col items-center justify-center">
-           
+    const containerRef = useRef(null);
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
 
+    // คำนวณการขยับของรูปตามเมาส์
+    const rotateX = useTransform(mouseY, [0, 300], [10, -10]);
+    const rotateY = useTransform(mouseX, [0, 300], [-10, 10]);
+
+    const handleMouseMove = (e) => {
+        const rect = containerRef.current.getBoundingClientRect();
+        mouseX.set(e.clientX - rect.left);
+        mouseY.set(e.clientY - rect.top);
+    };
+
+    return (
+        <div
+            ref={containerRef}
+            onMouseMove={handleMouseMove}
+            className="relative flex flex-col items-center justify-center w-[300px] h-[300px]"
+        >
             {/* วงกลมโปรไฟล์ + ตัวหนังสือหมุน */}
-            <div className="relative w-70 h-70 flex items-center justify-center">
-                {/* ตัวหนังสือหมุน (ใช้ Framer Motion) */}
+            <div className="relative w-72 h-72 flex items-center justify-center">
+                {/* ตัวหนังสือหมุน */}
                 <motion.div
                     className="absolute inset-0"
                     animate={{ rotate: 360 }}
-                    transition={{ repeat: Infinity, duration: 200, ease: "linear" }}
+                    transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
                 >
                     <svg viewBox="0 0 100 100" className="w-full h-full">
                         <defs>
@@ -28,19 +44,25 @@ const SpinningTextAroundImage = () => {
                             <textPath href="#circlePath" startOffset="50%">
                                 .Dev_
                             </textPath>
-
                         </text>
                     </svg>
                 </motion.div>
 
-                {/* รูปโปรไฟล์ในวงกลม */}
-                <div className="w-50 h-50 rounded-full border-black overflow-hidden flex items-center justify-center drop-shadow-lg bg-white">
+                {/* รูปโปรไฟล์ที่ขยับตามเมาส์ */}
+                <motion.div
+                    style={{
+                        rotateX,
+                        rotateY,
+                        perspective: 10000,
+                    }}
+                    className="w-48 h-48 rounded-full overflow-hidden drop-shadow-lg bg-white flex items-center justify-center hover:scale-105 transition-all duration-500"
+                >
                     <img
                         src="/assets/images/profile.jpg"
                         alt="profile"
                         className="w-full h-full object-cover"
                     />
-                </div>
+                </motion.div>
             </div>
         </div>
     );

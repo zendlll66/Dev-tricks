@@ -10,6 +10,8 @@ import BlogDetail from './pages/BlogDetail'
 import PostPage from './pages/dashboard/Postpage'
 import EditDelete from './pages/dashboard/EditDelete'
 import EditById from './pages/dashboard/EditById'
+import Contact from './pages/Contact'
+import AboutPage from './pages/AboutPage'
 
 
 const router = createBrowserRouter([
@@ -57,7 +59,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Nopage />
+        element: <Contact />
+      },
+      {
+        path: "/about",
+        element: <AboutPage />
       }
     ]
   }

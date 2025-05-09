@@ -16,13 +16,13 @@ const NavbarCus = () => {
             <div className='hidden md:flex'>
                 <ul className='flex flex-row gap-5'>
                     <li>
-                        <a href="">About</a>
+                        <a href="/about">About</a>
                     </li>
                     <li>
                         <a href="https://zend-portfolio.vercel.app/">My Portfolio</a>
                     </li>
                     <li>
-                        <a href="">Contact</a>
+                        <a href="/contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -53,7 +53,7 @@ const NavbarCus = () => {
 
                     <a href="/about" className="text-[16px] leading-[24px] font-medium">About</a>
                     <a href="/services" className="text-[16px] leading-[24px] font-medium">My Portfolio</a>
-                    <a href="/usecases" className="text-[16px] leading-[24px] font-medium">Contact</a>
+                    <a href="/contact" className="text-[16px] leading-[24px] font-medium">Contact</a>
                 </div>
             )}
 

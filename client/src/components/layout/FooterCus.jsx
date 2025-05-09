@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 const FooterCus = () => {
     return (
         <div className='bg-[#191A23] text-white  px-10 pt-10 pb-5 md:px-20 md:pt-20 md:pb-10 space-y-10 rounded-t-2xl'>
@@ -10,9 +10,9 @@ const FooterCus = () => {
                     .DEV_
                 </h1>
                 <ul className='flex items-center text-center flex-col md:flex-row justify-center gap-3 md:gap-10'>
-                    <li><a href="">About</a></li>
-                    <li><a href="">My Portfolio</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="https://zend-portfolio.vercel.app/">My Portfolio</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </nav>
 
@@ -27,13 +27,23 @@ const FooterCus = () => {
 
                 {/* Right content */}
                 <div data-aos="fade-up" className='bg-[#292A32] md:px-5 p-5 mt-5 md:mt-0  rounded-2xl flex justify-center  gap-3 items-center'>
-                    <div className='flex flex-col md:flex-row items-center gap-3'>
-                        <input
-                            type="text"
-                            placeholder='Name'
-                            className='flex-1 border-2 w-full  border-white/80 rounded-xl text-sm p-3 bg-transparent placeholder-white'
-                        />
-
+                    {/* ขวา: โซเชียล */}
+                    <div className="flex flex-col items-center gap-3">
+                        <span className="text-white font-semibold">Follow Me</span>
+                        <div className="flex gap-4 text-lg">
+                            <a href="https://www.facebook.com/om.small.1/" target="_blank" rel="noopener noreferrer">
+                                <FaFacebook className="hover:text-blue-500 transition" />
+                            </a>
+                            <a href="https://www.instagram.com/om.zend/" target="_blank" rel="noopener noreferrer">
+                                <FaInstagram className="hover:text-blue-500 transition" />
+                            </a>
+                            <a href="https://github.com/zendlll66" target="_blank" rel="noopener noreferrer">
+                                <FaGithub className="hover:text-gray-400 transition" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/%E0%B8%81%E0%B8%B4%E0%B8%95%E0%B8%95%E0%B8%B4%E0%B8%98%E0%B8%B1%E0%B8%8A-%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B9%8C%E0%B8%82%E0%B8%AD%E0%B8%A1-291362359/" target="_blank" rel="noopener noreferrer">
+                                <FaLinkedin className="hover:text-blue-400 transition" />
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

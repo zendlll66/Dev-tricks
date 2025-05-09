@@ -1,6 +1,7 @@
 'use client';
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { motion } from 'framer-motion';
 
 const MailSender = () => {
   const formRef = useRef(null); // ❌ เอา TypeScript ออก
@@ -38,9 +39,40 @@ const MailSender = () => {
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      <h1 className='text-3xl font-bold'>Contact me</h1>
-      <form
-        data-aos="fade-up"
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+
+      <motion.div
+        initial={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: [0, -20, 0] }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "easeInOut"
+        }}
+
+      >
+        <img src="/assets/images/Logo.svg" alt="" className='w-20' />
+      </motion.div>
+
+      <motion.h1
+        initial={{ opacity: 0, y: 0 }}
+        animate={{ opacity: 1, y: -20 }}
+        transition={{
+          duration: 1,
+          repeatType: "loop",
+          ease: "easeInOut"
+        }}
+        className='text-3xl mt-10 font-bold'>Contact me
+      </motion.h1>
+      <motion.form
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: [0, -20] }}
+        transition={{
+          duration: 1,
+          repeatType: "loop",
+          ease: "easeInOut"
+        }}
         ref={formRef}
         onSubmit={sendEmail}
         className="flex flex-col gap-4 max-w-lg mx-auto mt-10 rounded-md shadow"
@@ -69,7 +101,7 @@ const MailSender = () => {
         />
         <button
           type="submit"
-          className="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 flex justify-center items-center"
+          className="bg-[#B9FF66]/90 border-b-3 border-1  text-black py-2 px-4 rounded-md hover:bg-[#B9FF66] hover:scale-102 transition-all duration-500 flex justify-center items-center"
           disabled={isSending}
         >
           {isSending ? (
@@ -101,7 +133,7 @@ const MailSender = () => {
           )}
         </button>
         <p className="text-center text-sm text-green-600">{status}</p>
-      </form>
+      </motion.form>
     </div>
   );
 };

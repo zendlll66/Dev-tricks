@@ -27,8 +27,8 @@ const BlogDetail = () => {
                     <Tag
                         key={index}
                         className={`mt-8 mb-4 font-bold text-gray-800 ${block.data.level === 1 ? 'text-3xl' :
-                                block.data.level === 2 ? 'text-2xl' :
-                                    block.data.level === 3 ? 'text-xl' : 'text-lg'
+                            block.data.level === 2 ? 'text-2xl' :
+                                block.data.level === 3 ? 'text-xl' : 'text-lg'
                             }`}
                     >
                         {block.data.text}

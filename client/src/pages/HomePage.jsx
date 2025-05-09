@@ -2,6 +2,7 @@ import React from 'react'
 
 import HeroHeader from '../sections/HeroHeader'
 import BlogSection from '../sections/BlogSection'
+import ActivityPage from '../sections/ActivityPage'
 
 const HomePage = () => {
     return (
@@ -14,8 +15,11 @@ const HomePage = () => {
             <div className='w-full mb-20 '>
                 <BlogSection/>
             </div>
+            {/* <div className='w-full mb-20'>
+                <ActivityPage/>
+            </div> */}
         </div>
-
+ 
     )
 }
 

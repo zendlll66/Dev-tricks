@@ -4,7 +4,7 @@ import { useState } from 'react'
 const NavbarCus = () => {
     const [isOpen, setIsOpen] = useState(false)
     return (
-        <div className='flex flex-row items-center border-b-[1px] border-black/10 backdrop-blur-sm  justify-between md:px-[80px] md:py-[20px] px-[50px] py-[10px]  '>
+        <div className='flex flex-row items-center border-b-[1px] border-black/10 backdrop-blur-sm justify-between md:px-[80px] md:py-[20px] px-[50px] py-[10px]  '>
             {/* logo */}
             <a href="/">
                 <h1 className='select-none text-2xl'>

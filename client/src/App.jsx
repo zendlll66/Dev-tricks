@@ -7,6 +7,9 @@ import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import ProtectedRoute from './components/ProtectedRoute'
 import BlogDetail from './pages/BlogDetail'
+import PostPage from './pages/dashboard/Postpage'
+import EditDelete from './pages/dashboard/EditDelete'
+import EditById from './pages/dashboard/EditById'
 
 
 const router = createBrowserRouter([
@@ -32,11 +35,29 @@ const router = createBrowserRouter([
         element:
           <ProtectedRoute>
             <Dashboard />
-          </ProtectedRoute>
+          </ProtectedRoute>,
+        children: [
+          {
+            path: "/dashboard/post",
+            element: <PostPage />
+          },
+          {
+            path: "/dashboard/edit",
+            element: <EditDelete />
+          },
+          {
+            path: "/dashboard/edit/:id",
+            element: <EditById />
+          }
+        ]
       },
       {
         path: "/blogs/:id",
-        element: <BlogDetail/>
+        element: <BlogDetail />
+      },
+      {
+        path: "/contact",
+        element: <Nopage />
       }
     ]
   }

@@ -9,7 +9,10 @@ const Login = () => {
     const [loading, setLoading] = useState(false)
 
     const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value })
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
     }
 
     const handleSubmit = async (e) => {
@@ -33,6 +36,7 @@ const Login = () => {
             setLoading(false)
         }
     }
+
     return (
         <div className='flex justify-center bg-white rounded-2xl overflow-hidden border-b-4 border-1  md:border-l-4 md:border-t-[1px] md:border-b-[1px] items-center md:m-20  max-w-4xl'>
             <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>

@@ -13,8 +13,19 @@ export const getBlogsById = (id) =>
     })
 
 
-export const postBlogs = ({title, description, blocks}) =>
+export const postBlogs = ({ title, description, blocks }) =>
     fetcher('/blogs', {
         method: 'POST',
-        body: JSON.stringify({title, description, blocks})
+        body: JSON.stringify({ title, description, blocks })
+    })
+
+export const editBlogs = ({ id, title, description, blocks }) =>
+    fetcher(`/blogs/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ title, description, blocks })
+    })
+
+export const deleteBlogs = ({ id }) =>
+    fetcher(`/blogs/${id}`, {
+        method: 'DELETE',
     })

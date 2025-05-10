@@ -242,7 +242,7 @@ const ProjectPage = () => {
                                         href={selectedProject.links.demo}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex-1 text-center bg-gradient-to-r from-[#B9FF66] to-[#c8fa8b] text-black py-2.5 px-6 rounded-lg hover:from-[#FF4045] hover:to-[#FF7070] transition-all duration-300 shadow-lg hover:shadow-red-500/20 flex items-center justify-center gap-2"
+                                        className="flex-1 text-center bg-gradient-to-r from-[#B9FF66] to-[#c8fa8b] text-black py-2.5 px-6 rounded-lg hover:from-[#53722e] hover:to-[#c8fa8b] transition-all duration-300 shadow-lg hover:shadow-red-500/20 flex items-center justify-center gap-2"
                                     >
                                         ▶ Live Demo
                                     </a>

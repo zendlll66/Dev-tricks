@@ -2,7 +2,7 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
-
+import { FaFacebook, FaInstagram, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 const MailSender = () => {
   const formRef = useRef(null); // ❌ เอา TypeScript ออก
   const [status, setStatus] = useState('');
@@ -65,6 +65,28 @@ const MailSender = () => {
         }}
         className='text-3xl mt-10 font-bold'>Contact me
       </motion.h1>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="flex gap-6 mt-4 mb-4 text-2xl text-gray-700"
+      >
+        <a href="https://www.facebook.com/om.small.1/?locale=th_TH" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition">
+          <FaFacebook />
+        </a>
+        <a href="https://www.instagram.com/om.zend/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition">
+          <FaInstagram />
+        </a>
+        <a href="https://github.com/zendlll66" target="_blank" rel="noopener noreferrer" className="hover:text-black transition">
+          <FaGithub />
+        </a>
+        <a href="https://www.linkedin.com/in/%E0%B8%81%E0%B8%B4%E0%B8%95%E0%B8%95%E0%B8%B4%E0%B8%98%E0%B8%B1%E0%B8%8A-%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B9%8C%E0%B8%82%E0%B8%AD%E0%B8%A1-291362359/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition">
+          <FaLinkedin />
+        </a>
+        <a href="mailto:kittithat.dev@gmail.com" className="hover:text-red-600 transition">
+          <FaEnvelope />
+        </a>
+      </motion.div>
       <motion.form
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: [0, -20] }}

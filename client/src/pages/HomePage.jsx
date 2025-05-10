@@ -13,13 +13,13 @@ const HomePage = () => {
                 <HeroHeader />
             </div>
             <div className='w-full mb-20 '>
-                <BlogSection/>
+                <BlogSection />
             </div>
             {/* <div className='w-full mb-20'>
                 <ActivityPage/>
             </div> */}
         </div>
- 
+
     )
 }
 

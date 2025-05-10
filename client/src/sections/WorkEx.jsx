@@ -16,7 +16,7 @@ const WorkEx = () => {
             title: 'Front-end ,UI/UX Designer',
             company: 'Devsmith',
             detail: 'A live tracking system for public buses around Naresuan University, designed to improve real-time vehicle tracking and user accessibility.',
-            time: 'April 2024 - June 2024',
+            time: 'April 2024 - June 2024 (internship)',
             tool: ['Figma', 'React', 'TailwindCSS']
         },
         {
@@ -37,13 +37,13 @@ const WorkEx = () => {
                     <div
                         key={item.id}
                         onClick={() => toggleExpand(item.id)}
-                        className=' flex flex-row items-start space-x-5 w-full cursor-pointer group  p-4 rounded-xl transition'
+                        className=' flex flex-row items-start  space-x-5 w-full cursor-pointer group  p-4 rounded-xl transition'
                     >
                         <div className='w-20 shrink-0'>
                             <img src={item.img} alt="logo" />
                         </div>
 
-                        <div className='w-full'>
+                        <div className='w-full '>
                             <div className='flex flex-row items-center justify-between w-full'>
                                 <div className='flex flex-row items-center gap-2'>
                                     <h1 className='text-2xl font-bold'>{item.company}</h1>
@@ -51,7 +51,7 @@ const WorkEx = () => {
                                         className={`opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${expandedId === item.id ? 'rotate-90 opacity-100' : ''}`}
                                     />
                                 </div>
-                                <p>{item.time}</p>
+                                <p className='hidden  md:block '>{item.time}</p>
                             </div>
                             <p className='text-[#B9FF66] text-[12px] w-fit p-1 rounded-md bg-[#191A23]'>{item.title}</p>
 

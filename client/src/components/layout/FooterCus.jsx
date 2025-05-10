@@ -9,10 +9,58 @@ const FooterCus = () => {
                 <h1 className='select-none text-2xl'>
                     .DEV_
                 </h1>
-                <ul className='flex items-center text-center flex-col md:flex-row justify-center gap-3 md:gap-10'>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="https://zend-portfolio.vercel.app/">My Portfolio</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                {/* nav Desktop*/}
+                <ul className='justify-center items-center my-10 flex  flex-col md:flex-row gap-5'>
+                    {/* ABOUT + Dropdown */}
+                    <li className="relative group">
+                        <a
+                            href="#"
+                            className="relative after:bg-[#B9FF66] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 group-hover:after:scale-x-100"
+                        >
+                            ABOUT
+                        </a>
+
+                        {/* Dropdown */}
+                        <ul className="absolute bottom-full left-full mt-2 w-40 bg-white text-black shadow-lg rounded-md opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-50">
+                            <li>
+                                <a
+                                    href="/"
+                                    className="block px-4 py-2 hover:bg-[#B9FF66] transition"
+                                >
+                                    ME
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/about/project"
+                                    className="block px-4 py-2 hover:bg-[#B9FF66] transition"
+                                >
+                                    PROJECT
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/about/activity"
+                                    className="block px-4 py-2 hover:bg-[#B9FF66] transition"
+                                >
+                                    ACTIVITY
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/blogs" className="relative after:bg-[#B9FF66] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px]  after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">BLOGS</a>
+                    </li>
+                    <li>
+                        <a href="https://zend-portfolio.vercel.app/" className="relative after:bg-[#B9FF66] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">PORTFOLIO V.1</a>
+                    </li>
+                    <li>
+                        <a href="/contact" className="relative after:content-[''] after:bg-[#B9FF66] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">CONTACT</a>
+                    </li>
+                    <li>
+                        <a href="/Resume.pdf" className="relative after:bg-[#B9FF66] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px]  after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">RESUME</a>
+                    </li>
+
                 </ul>
             </nav>
 

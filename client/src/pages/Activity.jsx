@@ -1,12 +1,13 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 // ข้อมูลจำลอง
 const activities = [
     {
         id: '1',
         title: 'THINNO สสส.',
-        description: 'โครงการประกวดนวัตกรรมสร้างเสริมสุขภาพ',
+        description: 'โครงการประกวดนวัตกรรมสร้างเสริมสุขภาพ อันดับที่ 2 ระดับประเทศ',
         date: '03/64',
         image: '/assets/images/ac1.jpg',
     },
@@ -22,21 +23,47 @@ const activities = [
 const Activity = () => {
     const navigate = useNavigate()
 
+    const fadeRight = (delay = 0) => ({
+        hidden: { opacity: 0, x: 50 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.3,
+                delay,
+            },
+        },
+    });
+
     // const handleClick = (id) => {
     //     navigate(`/activity/${id}`)
     // }
 
     return (
-        <div className="p-6 ">
-            {/* Grid Background */}
-            <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
-            <h1 className="text-4xl font-bold mb-6">My Activities</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {activities.map((act) => (
-                    <div
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="p-6 flex flex-col justify-start w-full"
+        >
+            <motion.h1
+                className="text-4xl font-bold mb-6 uppercase"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+            >
+                My Activities
+            </motion.h1>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {activities.map((act, index) => (
+                    <motion.div
                         key={act.id}
                         className="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer hover:scale-105 hover:shadow-lg transition"
                         onClick={() => handleClick(act.id)}
+                        variants={fadeRight(index * 0.1)}
+                        initial="hidden"
+                        animate="visible"
                     >
                         <img
                             src={act.image}
@@ -48,10 +75,10 @@ const Activity = () => {
                             <p className="text-gray-600 text-sm mt-1">{act.description}</p>
                             <p className="text-gray-400 text-xs mt-2">{act.date}</p>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
-        </div>
+        </motion.div>
     )
 }
 

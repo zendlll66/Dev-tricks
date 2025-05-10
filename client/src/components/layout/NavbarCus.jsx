@@ -4,7 +4,7 @@ import { useState } from 'react'
 const NavbarCus = () => {
     const [isOpen, setIsOpen] = useState(false)
     return (
-        <div className='flex flex-row items-center border-b-[1px] border-black/10 backdrop-blur-sm justify-between md:px-[80px] md:py-[20px] px-[50px] py-[10px]  '>
+        <div className='flex flex-row items-center z-40 border-b-[1px] border-black/10 backdrop-blur-sm justify-between md:px-[80px] md:py-[20px] px-[50px] py-[10px]  '>
             {/* logo */}
             <a href="/">
                 <h1 className='select-none text-2xl'>
@@ -27,7 +27,7 @@ const NavbarCus = () => {
                     <ul className="absolute top-full left-0 mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-50">
                         <li>
                             <a
-                                href="/about"
+                                href="/"
                                 className="block px-4 py-2 hover:bg-[#B9FF66] transition"
                             >
                                 ME
@@ -52,14 +52,18 @@ const NavbarCus = () => {
                     </ul>
                 </li>
                 <li>
-                    <a href="https://zend-portfolio.vercel.app/" className="relative after:bg-[#B9FF66] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">MY PORTFOLIO</a>
+                    <a href="/blogs" className="relative after:bg-[#B9FF66] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px]  after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">BLOGS</a>
+                </li>
+                <li>
+                    <a href="https://zend-portfolio.vercel.app/" className="relative after:bg-[#B9FF66] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">PORTFOLIO V.1</a>
                 </li>
                 <li>
                     <a href="/contact" className="relative after:content-[''] after:bg-[#B9FF66] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">CONTACT</a>
                 </li>
                 <li>
-                    <a href="/Resume" className="relative after:bg-[#B9FF66] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px]  after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">RESUME</a>
+                    <a href="/Resume.pdf" className="relative after:bg-[#B9FF66] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px]  after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">RESUME</a>
                 </li>
+
             </ul>
 
             {/* Mobile Toggle Button */}
@@ -85,10 +89,13 @@ const NavbarCus = () => {
                             ×
                         </button>
                     </div>
-
-                    <a href="/about" className="text-[16px] leading-[24px] font-medium">About</a>
-                    <a href="/services" className="text-[16px] leading-[24px] font-medium">My Portfolio</a>
-                    <a href="/contact" className="text-[16px] leading-[24px] font-medium">Contact</a>
+                    <a href="/" className="text-[16px] leading-[24px] font-medium">ME</a>
+                    <a href="/about/project" className="text-[16px] leading-[24px] font-medium">PROJECT</a>
+                    <a href="/about/activity" className="text-[16px] leading-[24px] font-medium">ACTIVITY</a>
+                    <a href="/blogs" className="text-[16px] leading-[24px] font-medium">BLOGS</a>
+                    <a href="https://zend-portfolio.vercel.app/" className="text-[16px] leading-[24px] font-medium">MY PORTFOLIO V.1</a>
+                    <a href="/contact" className="text-[16px] leading-[24px] font-medium">CONTACT</a>
+                    <a href="/Resume.pdf" className="text-[16px] leading-[24px] font-medium">RESUME</a>
                 </div>
             )}
 

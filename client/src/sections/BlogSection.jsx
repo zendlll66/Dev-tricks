@@ -4,8 +4,8 @@ import { getBlogs } from '../../service/blogs'
 
 // ✅ Skeleton Placeholder
 const SkeletonCard = () => (
-    <div className="animate-pulse bg-gray-500 rounded-md w-full shadow-md p-4 space-y-4">
-        <div className="h-40 bg-gray-300 rounded w-50" />
+    <div className="animate-pulse bg-gray-500 rounded-md w-60 shadow-md p-4 space-y-4">
+        <div className="h-40 w-full bg-gray-300 rounded " />
         <div className="h-4 bg-gray-300 rounded w-30 " />
         <div className="h-4 bg-gray-300 rounded w-30 " />
     </div>
@@ -37,7 +37,7 @@ const BlogSection = () => {
 
             <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-10'>
                 {loading
-                    ? Array.from({ length: 4 }).map((_, index) => (
+                    ? Array.from({ length: 3 }).map((_, index) => (
                         <SkeletonCard key={index} />
                     ))
                     : dataBlog.map((item, index) => (

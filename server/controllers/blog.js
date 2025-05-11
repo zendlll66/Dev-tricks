@@ -1,5 +1,7 @@
 const db = require("../config/db");
-
+const cloudinary = require('../config/cloudinary');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 
 // GET /api/blogs
 exports.getAllBlogs = async (req, res) => {

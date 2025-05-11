@@ -26,7 +26,7 @@ const EditDelete = () => {
     // แก้ไข
     const handleEdit = (id) => {
         // คุณสามารถใช้ navigate ไปหน้า /edit/:id หรือเปิด modal ก็ได้
-        navigate(`/dashboard/edit/${id}`)
+        navigate(`/dashboard/blog/edit/${id}`)
         console.log('📝 Edit blog ID:', id)
     }
 

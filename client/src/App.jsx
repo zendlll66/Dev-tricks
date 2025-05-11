@@ -14,6 +14,7 @@ import Contact from './pages/Contact'
 import AboutPage from './pages/AboutPage'
 import ProjectPage from './pages/ProjectPage'
 import Activity from './pages/Activity'
+import PostPro from './pages/dashboard/manageProject/PostPro'
 
 
 const router = createBrowserRouter([
@@ -42,16 +43,20 @@ const router = createBrowserRouter([
           </ProtectedRoute>,
         children: [
           {
-            path: "/dashboard/post",
+            path: "/dashboard/blog/post",
             element: <PostPage />
           },
           {
-            path: "/dashboard/edit",
+            path: "/dashboard/blog/edit",
             element: <EditDelete />
           },
           {
-            path: "/dashboard/edit/:id",
+            path: "/dashboard/blog/edit/:id",
             element: <EditById />
+          },
+          {
+            path: "/dashboard/project/post",
+            element: <PostPro />
           }
         ]
       },

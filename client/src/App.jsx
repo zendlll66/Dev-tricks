@@ -15,6 +15,7 @@ import AboutPage from './pages/AboutPage'
 import ProjectPage from './pages/ProjectPage'
 import Activity from './pages/Activity'
 import PostPro from './pages/dashboard/manageProject/PostPro'
+import ActivityDetail from './pages/ActivityDetail'
 
 
 const router = createBrowserRouter([
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
       {
         path: '/about/activity',
         element: <Activity />
+      },
+      {
+        path: 'about/activity/details/:id',
+        element: <ActivityDetail />
       }
     ]
   }

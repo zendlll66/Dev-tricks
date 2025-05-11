@@ -10,6 +10,7 @@ const activities = [
         description: 'โครงการประกวดนวัตกรรมสร้างเสริมสุขภาพ อันดับที่ 2 ระดับประเทศ',
         date: '03/64',
         image: '/assets/images/ac1.jpg',
+        
     },
     {
         id: '2',
@@ -35,9 +36,9 @@ const Activity = () => {
         },
     });
 
-    // const handleClick = (id) => {
-    //     navigate(`/activity/${id}`)
-    // }
+    const handleClick = (id) => {
+        navigate(`details/${id}`)
+    }
 
     return (
         <motion.div

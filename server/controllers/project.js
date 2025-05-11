@@ -140,7 +140,7 @@ exports.putProjects = async (req, res) => {
 
 exports.deleteProjects = async (req, res) => {
   const { id } = req.params;
-  s;
+
   if (!id) {
     return res.status(400).json({
       success: false,

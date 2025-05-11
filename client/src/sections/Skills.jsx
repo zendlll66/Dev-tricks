@@ -31,6 +31,9 @@ const Skills = () => {
                 "Figma",
                 "Photoshop"
             ],
+            Test: [
+                "Cypress"
+            ],
         }
     ];
 

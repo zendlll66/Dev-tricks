@@ -20,9 +20,9 @@ const HeroHeader = () => {
                 <p className=''>
                     Write smarter, not harder – one trick at a time.
                 </p>
-                <button className='px-5 w-fit py-2 bg-[#B9FF66] rounded-lg hover:bg-[#B9FF66] hover:cursor-pointer hover:scale-102 transition-all duration-500'>
+                {/* <button className='px-5 w-fit py-2 bg-[#B9FF66] rounded-lg hover:bg-[#B9FF66] hover:cursor-pointer hover:scale-102 transition-all duration-500'>
                     Button
-                </button>
+                </button> */}
             </div>
 
             {/* Right content */}

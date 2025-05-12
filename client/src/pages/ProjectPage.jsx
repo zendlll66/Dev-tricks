@@ -54,10 +54,8 @@ const ProjectPage = () => {
         },
     });
 
-
-
     return (
-        <div className='h-full'>
+        <div className='h-full  w-full  '>
 
 
             <motion.h1
@@ -69,7 +67,7 @@ const ProjectPage = () => {
             </motion.h1>
 
 
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="mt-6  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {
                     loading ? Array.from({ length: 3 }).map((_, index) => (
                         <SkeletonCard key={index} />

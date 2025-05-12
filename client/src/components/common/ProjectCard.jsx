@@ -23,7 +23,7 @@ const ProjectCard = ({ project, index, onClick }) => {
     return (
         <motion.div
             ref={ref}
-            className="cursor-pointer bg-[#191A23] drop-shadow-md border-gray-700 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition"
+            className="cursor-pointer w-full bg-[#191A23] drop-shadow-md border-gray-700 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition"
             onClick={onClick}
             variants={fadeRight}
             initial="hidden"

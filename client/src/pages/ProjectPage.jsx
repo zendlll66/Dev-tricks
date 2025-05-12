@@ -1,11 +1,25 @@
 import React from 'react'
 import { useState } from 'react'
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
 import { getProjects } from '../../service/projects';
-import { useInView } from 'framer-motion';
 import { useEffect } from 'react';
 import ProjectCard from '../components/common/ProjectCard';
+
+
+// ✅ Skeleton Placeholder
+const SkeletonCard = () => (
+    <motion.div
+        className="animate-pulse cursor-pointer bg-[#191A23] drop-shadow-md w-80 border-gray-700 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition"
+    >
+        <div className="w-full h-48 object-cover bg-gray-700 "></div>
+        <div className="p-4 text-white ">
+            <h2 className="font-bold text-lg w-full h-5 rounded-2xl bg-gray-700"></h2>
+            <p className="text-sm text-gray-400  w-1/2 h-5 rounded-2xl bg-gray-700 mt-2"></p>
+            <p className="text-xs text-gray-500 w-full h-5 rounded-2xl bg-gray-700 mt-2"></p>
+        </div>
+    </motion.div>
+)
+
 const ProjectPage = () => {
     const [selectedProject, setSelectedProject] = useState(null);
     const [data, setData] = useState([]);
@@ -40,8 +54,11 @@ const ProjectPage = () => {
         },
     });
 
+
+
     return (
         <div className='h-full'>
+
 
             <motion.h1
                 variants={fadeRight(0.2)}
@@ -50,15 +67,24 @@ const ProjectPage = () => {
             >
                 <span className="text-3xl font-bold uppercase">Projects</span>
             </motion.h1>
+
+
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {data.map((project, index) => (
-                    <ProjectCard
-                        key={project.id}
-                        project={project}
-                        index={index}
-                        onClick={() => setSelectedProject(project)}
-                    />
-                ))}
+                {
+                    loading ? Array.from({ length: 3 }).map((_, index) => (
+                        <SkeletonCard key={index} />
+                    )) :
+                        data.map((project, index) => (
+                            <ProjectCard
+                                key={project.id}
+                                project={project}
+                                index={index}
+                                onClick={() => setSelectedProject(project)}
+                            />
+                        ))
+
+                }
+
 
                 {/* Modal */}
                 {selectedProject && (

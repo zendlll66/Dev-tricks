@@ -29,8 +29,8 @@ const ProjectCard = ({ project, index, onClick }) => {
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
         >
-            <img src={project.image_url} alt={project.title} className="w-full h-48 object-cover" />
-            <div className="p-4 text-white">
+            <img src={project.image_url} alt={project.title} className="w-full h-48 object-cover " />
+            <div className="p-4 text-white ">
                 <h2 className="font-bold text-lg">{project.title}</h2>
                 <p className="text-sm text-gray-400 line-clamp-2">{project.description}</p>
                 <p className="text-xs text-gray-500 mt-2">Tech: {project.techStack.join(', ')}</p>

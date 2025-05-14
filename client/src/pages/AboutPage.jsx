@@ -16,7 +16,7 @@ const fadeRight = (delay = 0) => ({
 
 const AboutPage = () => {
     return (
-        <div className="select-none w-full max-w-[1000px] px-4 mx-auto ">
+        <div className="select-none w-full max-w-[1000px]  ">
             {/* Header */}
             <motion.div {...fadeRight(0)} className="flex flex-col md:flex-row items-center justify-between md:space-x-5">
                 <div>

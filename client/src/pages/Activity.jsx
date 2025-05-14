@@ -10,7 +10,7 @@ const activities = [
         description: 'โครงการประกวดนวัตกรรมสร้างเสริมสุขภาพ อันดับที่ 2 ระดับประเทศ',
         date: '03/64',
         image: '/assets/images/ac1.jpg',
-        
+
     },
     {
         id: '2',
@@ -45,7 +45,7 @@ const Activity = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="p-6 flex flex-col justify-start w-full"
+            className="p-6  flex flex-col justify-start w-full"
         >
             <motion.h1
                 className="text-4xl font-bold mb-6 uppercase"

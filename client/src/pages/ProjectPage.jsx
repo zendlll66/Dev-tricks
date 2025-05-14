@@ -55,19 +55,17 @@ const ProjectPage = () => {
     });
 
     return (
-        <div className='h-full  w-full  '>
-
-
+        <div className='min-h-screen w-full px-4 md:px-6 lg:px-8 py-6'>
             <motion.h1
                 variants={fadeRight(0.2)}
                 initial="hidden"
                 animate="visible"
+                className="mb-8"
             >
-                <span className="text-3xl font-bold uppercase">Projects</span>
+                <span className="text-2xl md:text-3xl font-bold uppercase">Projects</span>
             </motion.h1>
 
-
-            <div className="mt-6  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                 {
                     loading ? Array.from({ length: 3 }).map((_, index) => (
                         <SkeletonCard key={index} />
@@ -80,22 +78,19 @@ const ProjectPage = () => {
                                 onClick={() => setSelectedProject(project)}
                             />
                         ))
-
                 }
-
 
                 {/* Modal */}
                 {selectedProject && (
-                    <div className="fixed inset-0 z-200 bg-black/40 backdrop-blur-sm bg-opacity-70 flex items-center justify-center p-4">
-                        <div className="bg-gradient-to-br from-[#191A23] to-[#2a2a2a] text-white p-6 rounded-xl max-w-2xl w-full border border-gray-700/50 shadow-2xl relative overflow-hidden group">
-
+                    <div className="fixed inset-0 z-200 bg-black/40 backdrop-blur-sm bg-opacity-70 flex items-center justify-center p-4 md:p-6">
+                        <div className="bg-gradient-to-br from-[#191A23] to-[#2a2a2a] text-white p-4 md:p-6 rounded-xl w-full max-w-2xl border border-gray-700/50 shadow-2xl relative max-h-[90vh] overflow-y-auto">
                             {/* Close Button */}
                             <button
                                 onClick={() => setSelectedProject(null)}
-                                className="absolute top-4 right-4 text-gray-300 hover:text-white text-xl font-bold z-10 transition-all duration-200 hover:scale-110"
+                                className="absolute top-3 right-3 md:top-4 md:right-4 text-gray-300 hover:text-white text-xl font-bold z-10 transition-all duration-200 hover:scale-110"
                                 aria-label="Close modal"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <line x1="18" y1="6" x2="6" y2="18" />
                                     <line x1="6" y1="6" x2="18" y2="18" />
                                 </svg>
@@ -103,41 +98,41 @@ const ProjectPage = () => {
 
                             {/* Content */}
                             <div className="relative z-0">
-                                <h2 className="text-3xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#B9FF66] to-[#c8fa8b]">
+                                <h2 className="text-2xl md:text-3xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#B9FF66] to-[#c8fa8b]">
                                     {selectedProject.title}
                                 </h2>
 
                                 {/* Image */}
-                                <div className="relative overflow-hidden rounded-lg mb-5 border border-gray-700/50">
+                                <div className="relative overflow-hidden rounded-lg mb-4 md:mb-5 border border-gray-700/50">
                                     <img
                                         src={selectedProject.image_url}
                                         alt={selectedProject.title}
                                         width={500}
                                         height={300}
-                                        className="w-full h-100  object-cover transition-transform duration-300 group-hover:scale-105"
+                                        className="w-full h-48 md:h-64 object-cover"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-70"></div>
                                 </div>
 
                                 {/* Description */}
-                                <p className="text-gray-300 mb-5 leading-relaxed">
+                                <p className="text-sm md:text-base text-gray-300 mb-4 md:mb-5 leading-relaxed">
                                     {selectedProject.description}
                                 </p>
 
                                 {/* Role */}
-                                <div className="mb-5">
+                                <div className="mb-4 md:mb-5">
                                     <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">My Role</span>
-                                    <p className="text-gray-300 mt-1">{selectedProject.role}</p>
+                                    <p className="text-sm md:text-base text-gray-300 mt-1">{selectedProject.role}</p>
                                 </div>
 
                                 {/* Tech Stack */}
-                                <div className="mb-6">
+                                <div className="mb-5 md:mb-6">
                                     <span className="text-xs font-semibold uppercase tracking-wider text-gray-400 block mb-2">Tech Stack</span>
                                     <div className="flex flex-wrap gap-2">
                                         {selectedProject.techStack.map((tech, index) => (
                                             <span
                                                 key={index}
-                                                className="bg-gray-800/80 text-white text-xs py-1.5 px-3 rounded-full border border-gray-700 hover:bg-gray-700 transition-all duration-200"
+                                                className="bg-gray-800/80 text-white text-xs py-1 px-2 md:py-1.5 md:px-3 rounded-full border border-gray-700 hover:bg-gray-700 transition-all duration-200"
                                             >
                                                 {tech}
                                             </span>
@@ -146,12 +141,12 @@ const ProjectPage = () => {
                                 </div>
 
                                 {/* Action Buttons */}
-                                <div className="flex gap-4">
+                                <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                                     <a
                                         href={selectedProject.demo_link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex-1 text-center bg-gradient-to-r from-[#B9FF66] to-[#c8fa8b] text-black py-2.5 px-6 rounded-lg hover:from-[#53722e] hover:to-[#c8fa8b] transition-all duration-300 shadow-lg hover:shadow-red-500/20 flex items-center justify-center gap-2"
+                                        className="w-full sm:flex-1 text-center bg-gradient-to-r from-[#B9FF66] to-[#c8fa8b] text-black py-2 md:py-2.5 px-4 md:px-6 rounded-lg hover:from-[#53722e] hover:to-[#c8fa8b] transition-all duration-300 shadow-lg hover:shadow-red-500/20 flex items-center justify-center gap-2 text-sm md:text-base"
                                     >
                                         ▶ Live Demo
                                     </a>
@@ -159,7 +154,7 @@ const ProjectPage = () => {
                                         href={selectedProject.github_link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex-1 text-center bg-gray-800/80 text-white py-2.5 px-6 rounded-lg hover:bg-gray-700/80 transition-all duration-300 border border-gray-700 hover:border-gray-600 flex items-center justify-center gap-2"
+                                        className="w-full sm:flex-1 text-center bg-gray-800/80 text-white py-2 md:py-2.5 px-4 md:px-6 rounded-lg hover:bg-gray-700/80 transition-all duration-300 border border-gray-700 hover:border-gray-600 flex items-center justify-center gap-2 text-sm md:text-base"
                                     >
                                         ⛓ GitHub
                                     </a>
@@ -169,8 +164,7 @@ const ProjectPage = () => {
                     </div>
                 )}
             </div>
-        </div >
-
+        </div>
     );
 };
 export default ProjectPage

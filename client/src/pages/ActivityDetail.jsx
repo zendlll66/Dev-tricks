@@ -60,7 +60,7 @@ const ActivityDetail = () => {
     const closeModal = () => setModalImage(null)
 
     return (
-        <div className="p-6 max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto">
             <motion.h1
                 className="text-3xl md:text-5xl font-bold"
                 variants={fadeIn}

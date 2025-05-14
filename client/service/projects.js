@@ -35,10 +35,10 @@ export const postProjects = (form) => {
 };
 
 
-export const editProjects = ({ id, title, description, role, image_url, demo_link, github_link }) =>
+export const editProjects = ({ id, formData }) =>
     fetcher(`/projects/${id}`, {
         method: 'PUT',
-        body: JSON.stringify({ title, description, role, image_url, demo_link, github_link })
+        body: formData
     })
 
 export const deleteProjects = ({ id }) =>

@@ -46,9 +46,9 @@ const EditDelete = () => {
     return (
         <div className="p-4 max-w-4xl mx-auto">
             <h1 className="text-2xl font-bold mb-4 text-center">📝 จัดการข่าว</h1>
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="gap-4">
                 {dataBlog.map((blog) => (
-                    <div key={blog.id} className="bg-white shadow-md p-4 rounded-xl border">
+                    <div key={blog.id} className="bg-white text-start shadow-md p-4 rounded-xl border">
                         <h2 className="text-lg font-semibold">{blog.title}</h2>
                         <p className="text-gray-700 mt-2 line-clamp-3">{blog.description}</p>
                         <div className="flex justify-end mt-4 space-x-2">

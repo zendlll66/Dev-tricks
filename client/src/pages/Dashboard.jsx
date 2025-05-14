@@ -6,7 +6,7 @@ import { Menu } from 'lucide-react'
 const Dashboard = () => {
     const navigate = useNavigate()
     const location = useLocation()
-    const [menuOpen, setMenuOpen] = useState(true)
+    const [menuOpen, setMenuOpen] = useState(false)
     const menuRef = useRef(null)
 
 

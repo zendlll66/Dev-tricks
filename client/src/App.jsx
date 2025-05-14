@@ -16,6 +16,8 @@ import ProjectPage from './pages/ProjectPage'
 import Activity from './pages/Activity'
 import PostPro from './pages/dashboard/manageProject/PostPro'
 import ActivityDetail from './pages/ActivityDetail'
+import EditPro from './pages/dashboard/manageProject/EditPro'
+import EditPostById from './pages/dashboard/manageProject/EditPostById'
 
 
 const router = createBrowserRouter([
@@ -58,6 +60,14 @@ const router = createBrowserRouter([
           {
             path: "/dashboard/project/post",
             element: <PostPro />
+          },
+          {
+            path: "/dashboard/project/edit",
+            element: <EditPro />
+          },
+          {
+            path: "/dashboard/project/edit/:id",
+            element: <EditPostById />
           }
         ]
       },

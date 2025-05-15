@@ -37,7 +37,9 @@ const EditDelete = () => {
 
         try {
             await deleteBlogs({ id })
-            setBlogs((prev) => prev.filter((blog) => blog.id !== id))
+            // ดึงข้อมูลใหม่หลังจากลบสำเร็จ
+            const response = await getBlogs()
+            setDataBlog(response || [])
         } catch (error) {
             console.error('❌ Failed to delete blog:', error)
         }

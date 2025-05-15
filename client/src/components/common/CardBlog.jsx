@@ -9,8 +9,12 @@ const CardBlog = ({ data }) => {
     }
     return (
         <div className='flex flex-col space-y-4 max-w-60 hover:scale-105 transition-all duration-500' onClick={() => handleSelect(data.id)} >
-            <div className='h-30 overflow-clip rounded-2xl object-cover border-1 bg-black/20 w-full'>
-                <img src="/assets/images/undraw_mobile.svg" alt="" />
+            <div className='h-30 overflow-hidden rounded-2xl border-1 bg-black/20 w-full aspect-[4/3]'>
+                <img
+                    src={data?.image_url}
+                    alt=""
+                    className='w-full h-full object-cover'
+                />
             </div>
             <div>
                 <HeadingCus lebal="Javascript" />

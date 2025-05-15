@@ -44,14 +44,23 @@ exports.getBlogsById = async (req, res) => {
 exports.postBlogs = async (req, res) => {
     try {
         const { title, description, blocks } = req.body;
+        // แปลง blocks จาก JSON string เป็น object
+        const parsedBlocks = JSON.parse(blocks);
+        
+        // When using Cloudinary storage, the file URL is available in req.file.path
+        const image_url = req.file ? req.file.path : null;
+        
         const [result] = await db.query(
-            'INSERT INTO blogs (title, description) VALUES (?, ?)',
-            [title, description]
+            'INSERT INTO blogs (title, description, image_url) VALUES (?, ?, ?)',
+            [title, description, image_url]
         );
 
         const blogId = result.insertId;
 
-        for (const block of blocks) {
+        for (const block of parsedBlocks) {
+            if (!block.type) {
+                throw new Error('Block type is required');
+            }
             await db.query(
                 'INSERT INTO blocks (blog_id, type, data) VALUES (?, ?, ?)',
                 [blogId, block.type, JSON.stringify(block.data)]
@@ -61,7 +70,7 @@ exports.postBlogs = async (req, res) => {
         res.status(201).json({ id: blogId });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ message: err });
+        res.status(500).json({ message: err.message || 'Error creating blog post' });
     }
 }
 

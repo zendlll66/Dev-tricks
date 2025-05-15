@@ -6,7 +6,7 @@ import { postBlogs } from '../../../service/blogs'
 const blockOptions = [
     { type: 'heading', label: 'Header' },
     { type: 'paragraph', label: 'Paragraph' },
-    { type: 'image', label: 'Image' },
+    { type: 'image', label: 'Image Gallery' },
     { type: 'code', label: 'Code' },
 ]
 
@@ -15,6 +15,22 @@ const PostPage = () => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [blocks, setBlocks] = useState([])
+    const [image_url, setImageUrl] = useState('')
+    const [imageFile, setImageFile] = useState(null)
+    const [uploadingImages, setUploadingImages] = useState({})
+    const [isSubmitting, setIsSubmitting] = useState(false)
+
+    const handleMainImageUpload = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        setImageFile(file);
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setImageUrl(reader.result);
+        };
+        reader.readAsDataURL(file);
+    }
 
     const addBlock = (type) => {
         const newBlock = {
@@ -22,7 +38,7 @@ const PostPage = () => {
             type,
             data: type === 'heading' ? { text: '', level: 2 } :
                 type === 'paragraph' ? { text: '' } :
-                    type === 'image' ? { url: '', caption: '' } :
+                    type === 'image' ? { caption: '', url: '' } :
                         type === 'code' ? { code: '' } : {}
         }
         setBlocks([...blocks, newBlock])
@@ -39,16 +55,88 @@ const PostPage = () => {
         setBlocks(blocks.filter(block => block.id !== id))
     }
 
-    const handleSubmit = async () => {
-        const payload = {
-            title,
-            description,
-            blocks,
+    const handleImageUpload = async (blockId, e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        setUploadingImages(prev => ({ ...prev, [blockId]: true }));
+
+        try {
+            const formData = new FormData();
+            formData.append('image', file);
+
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/upload/images`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
+                body: formData
+            });
+
+            if (!response.ok) throw new Error('Upload failed');
+
+            const data = await response.json();
+            
+            setBlocks(blocks.map(block => 
+                block.id === blockId 
+                    ? { 
+                        ...block, 
+                        data: { 
+                            ...block.data,
+                            url: data.url
+                        } 
+                    }
+                    : block
+            ));
+        } catch (error) {
+            console.error('Error uploading image:', error);
+            alert('เกิดข้อผิดพลาดในการอัพโหลดรูปภาพ');
+        } finally {
+            setUploadingImages(prev => ({ ...prev, [blockId]: false }));
         }
-        console.log('POST PAYLOAD:', payload)
-        await postBlogs(payload)
-        // ส่งไป API ได้ที่นี่
-        // navigate('/dashboard') // กลับหน้าหลังโพสต์เสร็จ
+    }
+
+    const removeImage = (blockId, imageIndex) => {
+        setBlocks(blocks.map(block =>
+            block.id === blockId
+                ? {
+                    ...block,
+                    data: {
+                        ...block.data,
+                        images: block.data.images.filter((_, index) => index !== imageIndex)
+                    }
+                }
+                : block
+        ));
+    }
+
+    const handleSubmit = async () => {
+        if (!title || !description || blocks.length === 0) {
+            alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+            return;
+        }
+
+        setIsSubmitting(true);
+        console.log('Blocks data before sending:', blocks);
+
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('description', description);
+        formData.append('blocks', JSON.stringify(blocks));
+        
+        if (imageFile) {
+            formData.append('image', imageFile);
+        }
+
+        try {
+            await postBlogs(formData);
+            navigate('/dashboard');
+        } catch (error) {
+            console.error('Error posting blog:', error);
+            alert('เกิดข้อผิดพลาดในการบันทึกบทความ');
+        } finally {
+            setIsSubmitting(false);
+        }
     }
 
     return (
@@ -71,6 +159,25 @@ const PostPage = () => {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
+
+                <div>
+                    <label className="block text-sm font-medium">Image</label>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleMainImageUpload}
+                        className="w-full border-2 border-dashed border-gray-300 rounded p-2"
+                    />
+                    {image_url && (
+                        <div className="mt-2">
+                            <img 
+                                src={image_url} 
+                                alt="Preview" 
+                                className="max-h-48 object-contain rounded"
+                            />
+                        </div>
+                    )}
+                </div>
 
 
             </div>
@@ -120,22 +227,37 @@ const PostPage = () => {
                         )}
 
                         {block.type === 'image' && (
-                            <>
-                                <input
-                                    type="text"
-                                    placeholder="Image URL"
-                                    className="w-full border p-2 rounded-md"
-                                    value={block.data.url}
-                                    onChange={(e) => updateBlock(block.id, 'url', e.target.value)}
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="คำบรรยายภาพ"
-                                    className="w-full border p-2 rounded-md"
-                                    value={block.data.caption}
-                                    onChange={(e) => updateBlock(block.id, 'caption', e.target.value)}
-                                />
-                            </>
+                            <div className="space-y-4">
+                                <div className="flex items-center gap-4">
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={(e) => handleImageUpload(block.id, e)}
+                                        className="w-full border p-2 rounded-md"
+                                        disabled={uploadingImages[block.id]}
+                                    />
+                                    {uploadingImages[block.id] && (
+                                        <span className="text-sm text-gray-500">กำลังอัพโหลด...</span>
+                                    )}
+                                </div>
+                                
+                                {block.data.url && (
+                                    <div className="space-y-2">
+                                        <img 
+                                            src={block.data.url} 
+                                            alt="Uploaded" 
+                                            className="w-full h-48 object-contain rounded-md"
+                                        />
+                                        <input
+                                            type="text"
+                                            placeholder="คำอธิบายรูปภาพ"
+                                            className="w-full border p-2 rounded-md"
+                                            value={block.data.caption || ''}
+                                            onChange={(e) => updateBlock(block.id, 'caption', e.target.value)}
+                                        />
+                                    </div>
+                                )}
+                            </div>
                         )}
 
                         {block.type === 'code' && (
@@ -163,9 +285,12 @@ const PostPage = () => {
             </div>
             <button
                 onClick={handleSubmit}
-                className="bg-[#B9FF66] text-black px-6 py-2 border-b-2 border-[1px] rounded-md cursor-pointer hover:scale-105 transition-all duration-500"
+                disabled={isSubmitting}
+                className={`bg-[#B9FF66] text-black px-6 py-2 border-b-2 border-[1px] rounded-md cursor-pointer transition-all duration-500 ${
+                    isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
+                }`}
             >
-                บันทึกบทความ
+                {isSubmitting ? 'กำลังบันทึก...' : 'บันทึกบทความ'}
             </button>
         </div>
     )

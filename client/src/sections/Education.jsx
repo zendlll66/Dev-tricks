@@ -22,13 +22,12 @@ const Education = () => {
             <div className='w-full'>
                 {Education.map((item) => (
                     <a
+                        key={item.id}
                         target="_blank"
                         href="https://www.nu.ac.th/"
                         rel="noopener noreferrer"
-
                     >
                         <div
-                            key={item.id}
                             onClick={() => toggleExpand(item.id)}
                             className=' flex flex-row items-start space-x-5 w-full cursor-pointer group  p-4 rounded-xl transition'
                         >

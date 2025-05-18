@@ -19,7 +19,6 @@ import ActivityDetail from './pages/ActivityDetail'
 import EditPro from './pages/dashboard/manageProject/EditPro'
 import EditPostById from './pages/dashboard/manageProject/EditPostById'
 
-
 const router = createBrowserRouter([
 
   {

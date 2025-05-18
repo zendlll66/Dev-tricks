@@ -12,6 +12,7 @@ const SkeletonCard = () => (
 )
 
 const BlogSection = () => {
+    
     const [dataBlog, setDataBlog] = useState([])
     const [loading, setLoading] = useState(true)
 

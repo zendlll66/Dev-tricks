@@ -44,12 +44,18 @@ exports.getBlogsById = async (req, res) => {
 exports.postBlogs = async (req, res) => {
     try {
         const { title, description, blocks } = req.body;
-        // แปลง blocks จาก JSON string เป็น object
-        const parsedBlocks = JSON.parse(blocks);
-        
-        // When using Cloudinary storage, the file URL is available in req.file.path
+        // รองรับทั้งกรณี blocks เป็น string หรือ array
+        let parsedBlocks;
+        if (typeof blocks === 'string') {
+            parsedBlocks = JSON.parse(blocks);
+        } else if (Array.isArray(blocks)) {
+            parsedBlocks = blocks;
+        } else {
+            throw new Error('Blocks format is invalid');
+        }
+
         const image_url = req.file ? req.file.path : null;
-        
+
         const [result] = await db.query(
             'INSERT INTO blogs (title, description, image_url) VALUES (?, ?, ?)',
             [title, description, image_url]

@@ -27,6 +27,15 @@ const WorkEx = () => {
             detail: 'A web application that collects and displays research papers, eBooks, and researcher profiles for the Faculty of Engineering at Naresuan University.',
             time: 'senior project',
             tool: ['Figma', 'React', 'TailwindCSS']
+        },
+        {
+            id: 'work-3',
+            img: '/assets/images/freelance.webp',
+            title: 'Front-end ,UI/UX Designer',
+            company: 'Freelance',
+            detail: 'Freelance projects involving UI/UX design with Figma and development using React Native, React, and Next.js. Experience includes creating demo apps such as gold savings, parking lot, doctor appointment, car rental, ride-hailing, and car sales apps. Also developed web platforms for car rental, parking lot management, ecommerce, lawyer landing pages, real estate, and backoffice systems for the mentioned apps and websites.',
+            time: 'freelance',
+            tool: ['Figma', 'React', 'TailwindCSS', 'Next.js', 'React Native']
         }
     ];
     return (

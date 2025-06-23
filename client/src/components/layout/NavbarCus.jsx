@@ -24,7 +24,7 @@ const NavbarCus = () => {
                     </a>
 
                     {/* Dropdown */}
-                    <ul className="absolute top-full left-0 mt-2 w-40 bg-white shadow-lg rounded-md opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-50">
+                    <ul className="absolute top-full left-0 mt-2 w-60 bg-white shadow-lg rounded-md opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-50">
                         <li>
                             <a
                                 href="/"
@@ -35,10 +35,18 @@ const NavbarCus = () => {
                         </li>
                         <li>
                             <a
-                                href="/about/project"
-                                className="block px-4 py-2 hover:bg-[#B9FF66] transition"
+                                href="/about/personal-projects"
+                                className="block px-4 py-2 hover:bg-[#B9FF66] transition UPPERCASE"
                             >
-                                PROJECT
+                                Personal Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/about/work-projects"
+                                className="block px-4 py-2 hover:bg-[#B9FF66] transition UPPERCASE"
+                            >
+                                Work Projects
                             </a>
                         </li>
                         <li>

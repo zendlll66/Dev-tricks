@@ -1,105 +1,107 @@
-import React from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import HomeLayout from './components/HomeLayout'
-import HomePage from './pages/HomePage'
-import Nopage from './pages/Nopage'
-import Login from './pages/Login'
-import Dashboard from './pages/Dashboard'
-import ProtectedRoute from './components/ProtectedRoute'
-import BlogDetail from './pages/BlogDetail'
-import PostPage from './pages/dashboard/Postpage'
-import EditDelete from './pages/dashboard/EditDelete'
-import EditById from './pages/dashboard/EditById'
-import Contact from './pages/Contact'
-import AboutPage from './pages/AboutPage'
-import ProjectPage from './pages/ProjectPage'
-import Activity from './pages/Activity'
-import PostPro from './pages/dashboard/manageProject/PostPro'
-import ActivityDetail from './pages/ActivityDetail'
-import EditPro from './pages/dashboard/manageProject/EditPro'
-import EditPostById from './pages/dashboard/manageProject/EditPostById'
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomeLayout from "./components/HomeLayout";
+import HomePage from "./pages/HomePage";
+import Nopage from "./pages/Nopage";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
+import BlogDetail from "./pages/BlogDetail";
+import PostPage from "./pages/dashboard/Postpage";
+import EditDelete from "./pages/dashboard/EditDelete";
+import EditById from "./pages/dashboard/EditById";
+import Contact from "./pages/Contact";
+import AboutPage from "./pages/AboutPage";
+import ProjectPage from "./pages/ProjectPage";
+import Activity from "./pages/Activity";
+import PostPro from "./pages/dashboard/manageProject/PostPro";
+import ActivityDetail from "./pages/ActivityDetail";
+import EditPro from "./pages/dashboard/manageProject/EditPro";
+import EditPostById from "./pages/dashboard/manageProject/EditPostById";
+import ProjectOnWork from "./pages/ProjectOnWork";
 
 const router = createBrowserRouter([
-
   {
     path: "/",
     element: <HomeLayout />,
     children: [
       {
         path: "/blogs",
-        element: <HomePage />
+        element: <HomePage />,
       },
       {
         path: "*",
-        element: <Nopage />
+        element: <Nopage />,
       },
       {
         path: "/login",
-        element: <Login />
+        element: <Login />,
       },
       {
         path: "/dashboard",
-        element:
+        element: (
           <ProtectedRoute>
             <Dashboard />
-          </ProtectedRoute>,
+          </ProtectedRoute>
+        ),
         children: [
           {
             path: "/dashboard/blog/post",
-            element: <PostPage />
+            element: <PostPage />,
           },
           {
             path: "/dashboard/blog/edit",
-            element: <EditDelete />
+            element: <EditDelete />,
           },
           {
             path: "/dashboard/blog/edit/:id",
-            element: <EditById />
+            element: <EditById />,
           },
           {
             path: "/dashboard/project/post",
-            element: <PostPro />
+            element: <PostPro />,
           },
           {
             path: "/dashboard/project/edit",
-            element: <EditPro />
+            element: <EditPro />,
           },
           {
             path: "/dashboard/project/edit/:id",
-            element: <EditPostById />
-          }
-        ]
+            element: <EditPostById />,
+          },
+        ],
       },
       {
         path: "/blogs/:id",
-        element: <BlogDetail />
+        element: <BlogDetail />,
       },
       {
         path: "/contact",
-        element: <Contact />
+        element: <Contact />,
       },
       {
         path: "/",
-        element: <AboutPage />
+        element: <AboutPage />,
       },
       {
-        path: "/about/project",
-        element: <ProjectPage />
+        path: "/about/personal-projects",
+        element: <ProjectPage />,
       },
       {
-        path: '/about/activity',
-        element: <Activity />
+        path: "/about/activity",
+        element: <Activity />,
       },
       {
-        path: 'about/activity/details/:id',
-        element: <ActivityDetail />
-      }
-    ]
-  }
-
-])
-
-
+        path: "about/activity/details/:id",
+        element: <ActivityDetail />,
+      },
+      {
+        path: "/about/work-projects",
+        element: <ProjectOnWork />,
+      },
+    ],
+  },
+]);
 
 const App = () => {
   return <RouterProvider router={router} />;

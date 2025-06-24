@@ -99,20 +99,20 @@ const MailSender = () => {
         onSubmit={sendEmail}
         className="flex flex-col gap-4 max-w-lg mx-auto mt-10 rounded-md shadow"
       >
-        <div className="flex flex-row gap-4">
+        <div className="flex sm:flex-row flex-col gap-4">
           <input
             type="text"
             name="name"
             placeholder="Your Name"
             required
-            className="border p-2 rounded-md flex-1"
+            className="border p-2 rounded-md flex-1 min-w-0"
           />
           <input
             type="email"
             name="email"
             placeholder="Your Email"
             required
-            className="border p-2 rounded-md flex-1"
+            className="border p-2 rounded-md flex-1 min-w-0"
           />
         </div>
         <textarea

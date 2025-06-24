@@ -9,39 +9,16 @@ import ProjectCard from "../components/common/ProjectCard";
 const mockProjects = [
   {
     id: 1,
-    title: "AI Chatbot Platform",
+    title: "2Carrent",
     description:
-      "A platform for building and deploying AI-powered chatbots for businesses.",
+      "2Carrent is a web platform for booking and renting cars online. My responsibilities included customizing the website UI, adding animations, and developing the language switcher functionality.",
     image_url:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80",
-    role: "Frontend Developer",
+      "/assets/images/2car.png",
+    role: "Frontend Developer (mainly frontend, but also implemented some backend CRUD functions)",
     techStack: ["React", "TailwindCSS", "Framer Motion"],
-    demo_link: "https://demo.example.com/ai-chatbot",
-    github_link: "https://github.com/example/ai-chatbot",
-  },
-  {
-    id: 2,
-    title: "E-commerce Dashboard",
-    description:
-      "A dashboard for managing products, orders, and analytics for online stores.",
-    image_url:
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=500&q=80",
-    role: "Fullstack Developer",
-    techStack: ["React", "Node.js", "Express", "MongoDB"],
-    demo_link: "https://demo.example.com/ecommerce-dashboard",
-    github_link: "https://github.com/example/ecommerce-dashboard",
-  },
-  {
-    id: 3,
-    title: "Portfolio Website",
-    description: "A personal portfolio website to showcase projects and skills.",
-    image_url:
-      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=500&q=80",
-    role: "Designer & Developer",
-    techStack: ["React", "TailwindCSS"],
-    demo_link: "https://demo.example.com/portfolio",
-    github_link: "https://github.com/example/portfolio",
-  },
+    demo_link: "https://2carrent.com",
+    github_link: "",
+  }
 ];
 
 // ✅ Skeleton Placeholder

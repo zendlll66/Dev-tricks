@@ -111,7 +111,7 @@ const PostPage = () => {
     }
 
     const handleSubmit = async () => {
-        if (!title || !description || blocks.length === 0) {
+        if (!title || !description ) {
             alert('กรุณากรอกข้อมูลให้ครบถ้วน');
             return;
         }

@@ -10,6 +10,7 @@ const Skills = () => {
                 "JavaScript",
                 "React JS",
                 "Next JS",
+                "React Native",
             ],
             back: [
                 "Node JS",

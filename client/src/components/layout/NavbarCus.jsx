@@ -98,7 +98,8 @@ const NavbarCus = () => {
                         </button>
                     </div>
                     <a href="/" className="text-[16px] leading-[24px] font-medium">ME</a>
-                    <a href="/about/project" className="text-[16px] leading-[24px] font-medium">PROJECT</a>
+                    <a href="/about/personal-projects" className="text-[16px] leading-[24px] font-medium"> Personal Projects</a>
+                    <a href="/about/work-projects" className="text-[16px] leading-[24px] font-medium">Work Projects</a>
                     <a href="/about/activity" className="text-[16px] leading-[24px] font-medium">ACTIVITY</a>
                     <a href="/blogs" className="text-[16px] leading-[24px] font-medium">BLOGS</a>
                     <a href="https://zend-portfolio.vercel.app/" className="text-[16px] leading-[24px] font-medium">MY PORTFOLIO V.1</a>

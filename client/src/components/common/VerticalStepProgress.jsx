@@ -25,6 +25,14 @@ const VerticalStepMenu = () => {
             ]
         },
         {
+            title: 'Project wk',
+            key: 'project-wk',
+            children: [
+                { label: 'Post', path: '/dashboard/project-wk/post' },
+                { label: 'Edit/Delete', path: '/dashboard/project-wk/edit' },
+            ]
+        },
+        {
             title: 'Activity',
             key: 'activity',
             children: [

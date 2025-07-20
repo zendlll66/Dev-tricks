@@ -76,15 +76,15 @@ const PostPage = () => {
             if (!response.ok) throw new Error('Upload failed');
 
             const data = await response.json();
-            
-            setBlocks(blocks.map(block => 
-                block.id === blockId 
-                    ? { 
-                        ...block, 
-                        data: { 
+
+            setBlocks(blocks.map(block =>
+                block.id === blockId
+                    ? {
+                        ...block,
+                        data: {
                             ...block.data,
                             url: data.url
-                        } 
+                        }
                     }
                     : block
             ));
@@ -111,7 +111,7 @@ const PostPage = () => {
     }
 
     const handleSubmit = async () => {
-        if (!title || !description ) {
+        if (!title || !description) {
             alert('กรุณากรอกข้อมูลให้ครบถ้วน');
             return;
         }
@@ -123,7 +123,7 @@ const PostPage = () => {
         formData.append('title', title);
         formData.append('description', description);
         formData.append('blocks', JSON.stringify(blocks));
-        
+
         if (imageFile) {
             formData.append('image', imageFile);
         }
@@ -170,9 +170,9 @@ const PostPage = () => {
                     />
                     {image_url && (
                         <div className="mt-2">
-                            <img 
-                                src={image_url} 
-                                alt="Preview" 
+                            <img
+                                src={image_url}
+                                alt="Preview"
                                 className="max-h-48 object-contain rounded"
                             />
                         </div>
@@ -240,12 +240,12 @@ const PostPage = () => {
                                         <span className="text-sm text-gray-500">กำลังอัพโหลด...</span>
                                     )}
                                 </div>
-                                
+
                                 {block.data.url && (
                                     <div className="space-y-2">
-                                        <img 
-                                            src={block.data.url} 
-                                            alt="Uploaded" 
+                                        <img
+                                            src={block.data.url}
+                                            alt="Uploaded"
                                             className="w-full h-48 object-contain rounded-md"
                                         />
                                         <input
@@ -286,9 +286,8 @@ const PostPage = () => {
             <button
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className={`bg-[#B9FF66] text-black px-6 py-2 border-b-2 border-[1px] rounded-md cursor-pointer transition-all duration-500 ${
-                    isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
-                }`}
+                className={`bg-[#B9FF66] text-black px-6 py-2 border-b-2 border-[1px] rounded-md cursor-pointer transition-all duration-500 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
+                    }`}
             >
                 {isSubmitting ? 'กำลังบันทึก...' : 'บันทึกบทความ'}
             </button>

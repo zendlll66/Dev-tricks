@@ -15,7 +15,6 @@ exports.createAdmin = async ({ username, email, passwordHash }) => {
     );
 };
 
-
 exports.meInfo = async (id) => {
     const [rows] = await db.query(
         "SELECT id, username , email, role FROM admins WHERE id = ?",

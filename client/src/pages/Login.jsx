@@ -67,15 +67,16 @@ const Login = () => {
                         className='border-1 w-full  rounded-md p-1 outline-none focus:border-[#B9FF66]'
                     />
                 </div>
-                <button onClick={handleSubmit} className='bg-[#B9FF66] w-full rounded-md p-1 hover:scale-105 transition-all duration-500'>{loading ? 'Please wait...' : 'Login'}</button>
+                <button
+                    onClick={handleSubmit}
+                    className='bg-[#B9FF66] w-full rounded-md p-1 hover:scale-105 transition-all duration-500'>{loading ? 'Please wait...' : 'Login'}
+                </button>
             </div>
 
             {/* right-content */}
             <div className='hidden md:flex w-1/2  justify-center shadow-2xl'>
                 <img src="/assets/images/bg-login.png" alt="" />
             </div>
-
-
         </div>
     )
 }

@@ -30,7 +30,7 @@ const DeleteConfirmationModal = ({ isOpen, onClose, onConfirm, projectTitle }) =
     );
 };
 
-const EditPro = () => {
+const EditProWk = () => {
     const [project, setProject] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
@@ -120,4 +120,4 @@ const EditPro = () => {
     )
 }
 
-export default EditPro
+export default EditProWk

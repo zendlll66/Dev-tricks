@@ -2,7 +2,7 @@ import React, { use, useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getProjectsById, editProjects } from '../../../../service/projectsWk'
 
-const EditPostById = () => {
+const EditPostByIdWk = () => {
     const { id } = useParams()
     const navigate = useNavigate()
     const [project, setProject] = useState(null)
@@ -197,4 +197,4 @@ const EditPostById = () => {
     )
 }
 
-export default EditPostById
+export default EditPostByIdWk

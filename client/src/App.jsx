@@ -19,6 +19,9 @@ import ActivityDetail from "./pages/ActivityDetail";
 import EditPro from "./pages/dashboard/manageProject/EditPro";
 import EditPostById from "./pages/dashboard/manageProject/EditPostById";
 import ProjectOnWork from "./pages/ProjectOnWork";
+import PostProWk from "./pages/dashboard/manageProject-wk/PostProWk";
+import EditProWk from "./pages/dashboard/manageProject-wk/EditProWk";
+import EditPostByIdWk from "./pages/dashboard/manageProject-wk/EditPostByIdWk";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +72,19 @@ const router = createBrowserRouter([
             path: "/dashboard/project/edit/:id",
             element: <EditPostById />,
           },
+          {
+            path: "/dashboard/project-wk/post",
+            element: <PostProWk />,
+          },
+          {
+            path: "/dashboard/project-wk/edit",
+            element: <EditProWk/>,
+          },
+          {
+            path: "/dashboard/project-wk/edit/:id",
+            element: <EditPostByIdWk/>,
+          },
+
         ],
       },
       {

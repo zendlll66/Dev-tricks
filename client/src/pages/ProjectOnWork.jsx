@@ -1,72 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { getProjects } from "../../service/projects";
+import { getProjects } from "../../service/projectsWk";
 import { useEffect } from "react";
 import ProjectCard from "../components/common/ProjectCard";
 
-// ✅ Mock Data
-const mockProjects = [
-  {
-    id: 1,
-    title: "2Carrent",
-    description:
-      "2Carrent is a web platform for booking and renting cars online. My responsibilities included customizing the website UI, adding animations, and developing the language switcher functionality.",
-    image_url: "/assets/images/2car.png",
-    role: "Frontend Developer (mainly frontend, but also implemented some backend CRUD functions)",
-    techStack: ["React", "TailwindCSS", "Framer Motion"],
-    demo_link: "https://2carrent.com",
-    github_link: "",
-  },
-  {
-    id: 2,
-    title: "Gold Savings App (Demo)",
-    description:
-      "A demo application for gold savings, allowing users to simulate saving and tracking gold investments. This is a mock project for demonstration purposes only.",
-    image_url:
-      "https://img.freepik.com/free-vector/torn-style-coming-soon-promo-template-social-media-post_1017-55783.jpg?semt=ais_hybrid&w=740&t=1",
-    role: "Frontend Developer, UI/UX Designer",
-    techStack: ["React native", "css"],
-    demo_link: "#",
-    github_link: "",
-  },
-  {
-    id: 3,
-    title: "Patient Records App (Demo)",
-    description:
-      "A demo application for recording and managing individual patient data. This is a mock project for demonstration purposes only, allowing users to simulate adding, editing, and viewing patient records.",
-    image_url:
-      "https://img.freepik.com/free-vector/torn-style-coming-soon-promo-template-social-media-post_1017-55783.jpg?semt=ais_hybrid&w=740&t=1",
-    role: "Frontend Developer, UI/UX Designer",
-    techStack: ["React native", "css"],
-    demo_link: "#",
-    github_link: "",
-  },
-  {
-    id: 4,
-    title: "Ride-Hailing App (Demo)",
-    description:
-      "MOOV is a demo ride-hailing application that allows users to book rides and negotiate fares. This is a mock project for demonstration purposes only. My responsibilities included designing the UX/UI and building the demo app with mock data.",
-    image_url:
-      "https://img.freepik.com/free-vector/torn-style-coming-soon-promo-template-social-media-post_1017-55783.jpg?semt=ais_hybrid&w=740&t=1",
-    role: "Frontend Developer, UI/UX Designer",
-    techStack: ["React native", "css", "Figma"],
-    demo_link: "#",
-    github_link: "",
-  },
-  {
-    id: 5,
-    title: "Parking App UI/UX Design (Demo)",
-    description:
-      "A demo project focused on designing the UI/UX for a parking application. This is a mock project for demonstration purposes only, showcasing user flows and interface design for booking and managing parking spots.",
-   image_url:
-      "https://img.freepik.com/free-vector/torn-style-coming-soon-promo-template-social-media-post_1017-55783.jpg?semt=ais_hybrid&w=740&t=1",
-    role: "UI/UX Designer",
-    techStack: ["Figma"],
-    demo_link: "#",
-    github_link: "",
-  },
-];
+
 
 // ✅ Skeleton Placeholder
 const SkeletonCard = () => (
@@ -86,14 +25,24 @@ const ProjectOnWork = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Mock fetch with timeout
-    setLoading(true);
-    const timer = setTimeout(() => {
-      setData(mockProjects);
-      setLoading(false);
-    }, 900); // simulate network delay
+    const fetchProjects = async () => {
+      setLoading(true);
+      try {
+        const response = await getProjects();
+        console.log('API Response:', response); // Debug log
+        // Fix: API returns array directly, not wrapped in data property
+        setData(response || []);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+        console.error('Error details:', error.message); // More detailed error
+        // Set empty array as fallback
+        setData([]);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    return () => clearTimeout(timer);
+    fetchProjects();
   }, []);
 
   const fadeRight = (delay = 0) => ({

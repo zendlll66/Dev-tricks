@@ -142,7 +142,7 @@ const Dashboard = () => {
             </button>
 
             {/* User Profile Header */}
-            <div className="fixed top-4 right-4 z-50 flex items-center space-x-3 bg-white rounded-full shadow-lg px-4 py-2">
+            <div className="fixed top-4 mt-20 right-4 z-50 flex items-center space-x-3 bg-white rounded-full shadow-lg px-4 py-2">
                 <div className="flex items-center space-x-2">
                     <img 
                         src={user?.avatar || '/assets/images/profile.jpg'} 

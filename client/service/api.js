@@ -16,3 +16,4 @@ export const fetcher = async (url, options = {}) => {
     if (!response.ok) throw new Error('API error');
     return response.json();
 };
+

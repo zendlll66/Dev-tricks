@@ -33,10 +33,6 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "*",
-        element: <Nopage />,
-      },
-      {
         path: "/login",
         element: <Login />,
       },
@@ -78,11 +74,11 @@ const router = createBrowserRouter([
           },
           {
             path: "/dashboard/project-wk/edit",
-            element: <EditProWk/>,
+            element: <EditProWk />,
           },
           {
             path: "/dashboard/project-wk/edit/:id",
-            element: <EditPostByIdWk/>,
+            element: <EditPostByIdWk />,
           },
 
         ],
@@ -116,6 +112,10 @@ const router = createBrowserRouter([
         element: <ProjectOnWork />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Nopage />,
   },
 ]);
 

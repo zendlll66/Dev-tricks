@@ -40,25 +40,26 @@ const FooterCus = () => {
                             <div className='space-y-3'>
                                 <h4 className='text-sm font-medium text-gray-300 uppercase tracking-wider'>About</h4>
                                 <ul className='space-y-2'>
-                                    <li><a href="/" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm'>Me</a></li>
-                                    <li><a href="/about/project" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm'>Projects</a></li>
-                                    <li><a href="/about/activity" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm'>Activities</a></li>
+                                    <li><a href="/" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm relative after:bg-[#B9FF66] after:content-[""] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'>Me</a></li>
+                                    <li><a href="/about/personal-projects" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm relative after:bg-[#B9FF66] after:content-[""] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'>Personal Projects</a></li>
+                                    <li><a href="/about/work-projects" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm relative after:bg-[#B9FF66] after:content-[""] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'>Work Projects</a></li>
+                                    <li><a href="/about/activity" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm relative after:bg-[#B9FF66] after:content-[""] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'>Activity</a></li>
                                 </ul>
                             </div>
                             <div className='space-y-3'>
                                 <h4 className='text-sm font-medium text-gray-300 uppercase tracking-wider'>Content</h4>
                                 <ul className='space-y-2'>
-                                    <li><a href="/blogs" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm'>Blogs</a></li>
-                                    <li><a href="https://zend-portfolio.vercel.app/" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm'>Portfolio V.1</a></li>
-                                    <li><a href="/Resume.pdf" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm'>Resume</a></li>
+                                    <li><a href="/blogs" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm relative after:bg-[#B9FF66] after:content-[""] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'>Blogs</a></li>
+                                    <li><a href="https://zend-portfolio.vercel.app/" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm relative after:bg-[#B9FF66] after:content-[""] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'>Portfolio V.1</a></li>
+                                    <li><a href="/Resume.pdf" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm relative after:bg-[#B9FF66] after:content-[""] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'>Resume</a></li>
                                 </ul>
                             </div>
                             <div className='space-y-3'>
                                 <h4 className='text-sm font-medium text-gray-300 uppercase tracking-wider'>Connect</h4>
                                 <ul className='space-y-2'>
-                                    <li><a href="/contact" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm'>Contact</a></li>
-                                    <li><a href="mailto:kittithat.dev@gmail.com" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm'>Email</a></li>
-                                    <li><a href="tel:+66956433948" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm'>Phone</a></li>
+                                    <li><a href="/contact" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm relative after:bg-[#B9FF66] after:content-[""] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'>Contact</a></li>
+                                    <li><a href="mailto:kittithat.dev@gmail.com" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm relative after:bg-[#B9FF66] after:content-[""] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'>Email</a></li>
+                                    <li><a href="tel:+66956433948" className='text-gray-400 hover:text-[#B9FF66] transition-colors duration-300 text-sm relative after:bg-[#B9FF66] after:content-[""] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'>Phone</a></li>
                                 </ul>
                             </div>
                         </nav>
